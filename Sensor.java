@@ -38,7 +38,7 @@ public class Sensor {
     }
 
     //Agregar Sensores
-    public static void anadirVehiculo(Sensor sen){
+    public void anadirSensor(Sensor sen){
         sensores[posAnadir] = sen;
         posAnadir ++;
     }
@@ -92,7 +92,7 @@ public class Sensor {
             for (int j = 0; j < size-1; j++){ //Ordenar, cambia las posiciones
                 if(sen[j].getValor() > sen[j+1].getValor()){ // Si numeroActual > numeroSiguiente
                     aux = sen[j]; //num actual
-                    sen[j] = sensores[j+1]; // num del siguiente
+                    sen[j] = sensores[j+1]; //num del siguiente
                     sen[j+1] = aux;
                 }
             }

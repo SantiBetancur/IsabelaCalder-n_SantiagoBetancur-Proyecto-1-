@@ -5,33 +5,33 @@ public class Principal {
         Principal.mostrarMenu();
     }
 
-    public static void mostrarMenu() {
+    public static void mostrarMenu(){
         Scanner in = new Scanner(System.in);
+        String menu = ("0: Salir del programa\n"
+        + "1: Ingresar un vehiculo nuevo \n"
+        + "2: Obtener la información de los vehiculos \n"    
+        + "3: Cantidad de vehiculos \n"
+        + "4: Vehiculos verdes \n"
+        + "5: Obtener la informacion de los vehiculos de modelo entre 2000-2021 \n"
+        + "6: Ingresar un sensor nuevo \n"
+        + "7: Obtener la información de los sensores \n"
+        + "8: Cantidad de sensores \n"
+        + "9: Obtener sensores de tipo temperatura \n"
+        + "10: Obtener la informacion de todos los sensores del tipo que ingrese \n"
+        + "11: Cantidad total de sensores segun el tipo que ingrese \n"
+        + "12: Sensores del tipo que ingrese ordenados de manera ascendente \n"
+        + "13: Abrir menu \n"
+        + "666: Sensores de tipo temperatura ordenados de manera ascendente \n");     
+
         System.out.println("BIENVENIDO A VEHICULOS Y SENSORES");
         System.out.println("*****MENU*****");
-        String menu = ("0: Salir del programa\n"
-            + "1: Ingresar un vehiculo nuevo \n"
-            + "2: Obtener la información de los vehiculos \n"    
-            + "3: Cantidad de vehiculos \n"
-            + "4: Vehiculos verdes \n"
-            + "5: Obtener la informacion de los vehiculos de modelo entre 2000-2021 \n"
-            + "6: Ingresar un sensor nuevo \n"
-            + "7: Obtener la información de los sensores \n"
-            + "8: Cantidad de sensores \n"
-            + "9: Obtener sensores de tipo temperatura \n"
-            + "10: Obtener la informacion de todos los sensores del tipo que ingrese \n"
-            + "11: Cantidad total de sensores segun el tipo que ingrese \n"
-            + "12: Sensores del tipo que ingrese ordenados de manera ascendente \n"
-            + "13: Abrir menu \n"
-            + "666: Sensores de tipo temperatura ordenados de manera ascendente \n");      
-
         System.out.println(menu);
 
         while(true){
             System.out.println("\n *******INGRESE UN NUMERO******* \n" );          
-             int num = in.nextInt();
+            int num = in.nextInt();
 
-            switch (num) {
+            switch(num){
                 case 1: 
                     if(Vehiculo.posAnadir < 10){
                         System.out.println("Ingrese el modelo del vehiculo: ");
@@ -71,7 +71,7 @@ public class Principal {
                         System.out.println("Ingrese el valor del sensor: ");    
                         double valor = in.nextDouble();
                         Sensor sensor = new Sensor(tipo, valor);
-                        Sensor.anadirVehiculo(sensor);
+                        sensor.anadirSensor(sensor);
                     }else{
                         System.out.println("Error base de datos llena");
                     }
@@ -107,7 +107,7 @@ public class Principal {
                     System.out.println("Ingrese el tipo de sensor: ");
                     String tipoAscendente = in.next(); 
                     String tipoAscendenteM = tipoAscendente.toUpperCase();
-                    Sensor senOrdenadTipo[] = Sensor.sensoresOrdenados("temperatura");
+                    Sensor senOrdenadTipo[] = Sensor.sensoresOrdenados(tipoAscendente);
                     System.out.println("*****SENSORES ORDENADO DE FORMA ASCENDENTE DE TIPO " + tipoAscendenteM + "*****");
                     System.out.println(Sensor.toStringArray(senOrdenadTipo));
                     break;

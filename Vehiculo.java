@@ -83,7 +83,7 @@ public class Vehiculo {
         posAnadir ++;
     }
     
-    //Metodo por color
+    //Metodo por color (sobrecarga)
     public static String toStringVehiculos(String color){
         String vehConcatenado = "";
         for(int i = 0; i < posAnadir; i++){
